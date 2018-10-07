@@ -28,3 +28,19 @@ contract('CryptoPirateToken', function(accounts) {
     });
   });
 });
+it('transfers token ownership', function() {
+  return CryptoPirateToken.deployed().then(function(instance) {
+    tokenInstance = instance;
+    return tokenInstance.transfer.call(accounts[1], 999999999999999999999);
+  }).then(assert.fail).catch(function(error) {
+    assert(error.message.indexOf('revert') >= 0, 'error message must contain revert');
+    return tokenInstance.transfer(accounts[1], 250000, { from: accounts[0] });
+  }).then(function(receipt) {
+    return tokenInstance.balanceOf(accounts[1]);
+  }).then(function(balance) {
+    assert.equal(balance.toNumber(), 250000, 'adds the amount to the recieving account');
+    return tokenInstance.balanceOf(accounts[0]);
+  }).then(function(balance) {
+    assert.equal(balance.toNumber(), 750000, 'deducts amount from account');
+  });
+});
