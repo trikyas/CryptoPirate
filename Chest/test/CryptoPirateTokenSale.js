@@ -1,9 +1,13 @@
+var CryptoPirateToken = artifacts.require("./CryptoPirateToken.sol");
 var CryptoPirateTokenSale = artifacts.require("./CryptoPirateTokenSale.sol");
 
 contract('CryptoPirateTokenSale', function(accounts) {
+  var tokenInstance;
   var tokenSaleInstance;
+  var admin = accounts[0];
   var buyer = accounts[1];
-  var tokenPrice = 1000000000000000;  // This is in WEI
+  var tokenPrice = 1000000000000000;  // This is in wei
+  var tokensAvailable = 750000;
   var numberOfTokens;
   it('initializes the contract with the correct values', function() {
     return CryptoPirateTokenSale.deployed().then(function(instance) {
@@ -20,8 +24,12 @@ contract('CryptoPirateTokenSale', function(accounts) {
     });
   });
   it('facilitates token buying', function() {
-    return CryptoPirateTokenSale.deployed().then(function(instance) {
+    return CryptoPirateToken.deployed().then(function(instance) {
+      tokenInstance = instance;
+      return CryptoPirateTokenSale.deployed();
+    }).then(function(instance) {
       tokenSaleInstance = instance;
+      return tokenInstance.transfer(tokenSaleInstance.address, tokensAvailable, { from: admin }).then(function(receipt) {
       numberOfTokens = 10;
       return tokenSaleInstance.buyTokens(numberOfTokens, { from: buyer, value: numberOfTokens * tokenPrice })
     }).then(function(receipt) {
@@ -32,7 +40,20 @@ contract('CryptoPirateTokenSale', function(accounts) {
       return tokenSaleInstance.tokensSold();
     }).then(function(amount) {
       assert.equal(amount.toNumber(), numberOfTokens, 'increments the number of tokens sold');
+      return tokenInstance.balanceOf(buyer);
+    }).then(function(balance) {
+      assert.equal(balance.toNumber(), numberOfTokens);
+      return tokenInstance.balanceOf(tokenSaleInstance.address);
+    }).then(function(balance) {
+      assert.equal(balance.toNumber(), tokensAvailable - numberOfTokens);
+      // Try and buy tokens different to the ether value
+      return tokenSaleInstance.buyTokens(numberOfTokens, { from: buyer, value: 1 });
+    }).then(assert.fail).catch(function(error) {
+      assert(error.message.indexOf('revert') >= 0, 'msg.value must equal number of tokens in wei');
+      return tokenSaleInstance.buyTokens(800000, { from: buyer, value: numberOfTokens * tokenPrice })
+    }).then(assert.fail).catch(function(error) {
+      assert(error.message.indexOf('revert') >= 0, 'cannot purchase more tokens than available');
     });
   });
-
+});
 });

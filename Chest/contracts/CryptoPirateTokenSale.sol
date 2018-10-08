@@ -14,7 +14,17 @@ contract CryptoPirateTokenSale {
     tokenContract = _tokenContract;
     tokenPrice = _tokenPrice;
   }
+// Using DSMath for handling multiply
+//  https://github.com/dapphub/ds-math/blob/master/src/math.sol
+
+// NOTE: 'pure' does not write to the Blockchain
+  function multiply(uint x, uint y) internal pure returns (uint z) {
+    require(y == 0 || (z = x * y) / y == x);
+  }
   function buyTokens(uint256 _numberOfTokens) public payable {
+    require(msg.value == multiply(_numberOfTokens, tokenPrice));
+    require(tokenContract.balanceOf(this) >= _numberOfTokens);
+    require(tokenContract.transfer(msg.sender, _numberOfTokens));
     tokensSold += _numberOfTokens;
     Sell(msg.sender, _numberOfTokens);
   }
