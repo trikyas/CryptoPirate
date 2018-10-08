@@ -25,6 +25,10 @@ contract('CryptoPirateTokenSale', function(accounts) {
       numberOfTokens = 10;
       return tokenSaleInstance.buyTokens(numberOfTokens, { from: buyer, value: numberOfTokens * tokenPrice })
     }).then(function(receipt) {
+      assert.equal(receipt.logs.length, 1, 'triggers one event');
+      assert.equal(receipt.logs[0].event, 'Sell', 'Is the sell event');
+      assert.equal(receipt.logs[0].args._buyer, buyer, 'logs the account that purchased tokens');
+      assert.equal(receipt.logs[0].args._amount, numberOfTokens, 'logs the number of tokens purchased');
       return tokenSaleInstance.tokensSold();
     }).then(function(amount) {
       assert.equal(amount.toNumber(), numberOfTokens, 'increments the number of tokens sold');

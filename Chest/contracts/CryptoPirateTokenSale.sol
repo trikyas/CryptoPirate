@@ -7,6 +7,7 @@ contract CryptoPirateTokenSale {
   CryptoPirateToken public tokenContract;
   uint256 public tokenPrice;
   uint256 public tokensSold;
+  event Sell(address _buyer, uint256 _amount);
 
   function CryptoPirateTokenSale(CryptoPirateToken _tokenContract, uint256 _tokenPrice) public {
     admin = msg.sender;
@@ -15,5 +16,6 @@ contract CryptoPirateTokenSale {
   }
   function buyTokens(uint256 _numberOfTokens) public payable {
     tokensSold += _numberOfTokens;
+    Sell(msg.sender, _numberOfTokens);
   }
 }
