@@ -27,14 +27,14 @@ contract('CryptoPirateToken', function(accounts) {
       assert.equal(adminBalance.toNumber(), 1000000, 'it allocates the initial supply to the admin account');
     });
   });
-});
+// revert error bug. Was here!
 it('transfers token ownership', function() {
   return CryptoPirateToken.deployed().then(function(instance) {
     tokenInstance = instance;
-    return tokenInstance.transfer.call(accounts[1], 9999999999999);
+    return tokenInstance.transfer.call(accounts[1], 9999999);
   }).then(assert.fail).catch(function(error) {
     assert(error.message.indexOf('revert') >= 0, 'error message must contain revert');
-    return tokenInstance.transfer(accounts[1], 250000, { from: accounts[0] });
+    return tokenInstance.transfer.call(accounts[1], 250000, { from: accounts[0] });
   }).then(function(success) {
     assert.equal(success, true, 'it returns true');
     return tokenInstance.transfer(accounts[1], 250000, { from: accounts[0] });
@@ -51,4 +51,6 @@ it('transfers token ownership', function() {
   }).then(function(balance) {
     assert.equal(balance.toNumber(), 750000, 'deducts amount from the sending account');
   });
+});
+
 });
