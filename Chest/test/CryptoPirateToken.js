@@ -31,7 +31,7 @@ contract('CryptoPirateToken', function(accounts) {
 it('transfers token ownership', function() {
   return CryptoPirateToken.deployed().then(function(instance) {
     tokenInstance = instance;
-    return tokenInstance.transfer.call(accounts[1], 9999999);
+    return tokenInstance.transfer.call(accounts[1], 9999999999999999);
   }).then(assert.fail).catch(function(error) {
     assert(error.message.indexOf('revert') >= 0, 'error message must contain revert');
     return tokenInstance.transfer.call(accounts[1], 250000, { from: accounts[0] });
