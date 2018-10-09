@@ -14,10 +14,10 @@ contract CryptoPirateTokenSale {
     tokenContract = _tokenContract;
     tokenPrice = _tokenPrice;
   }
-// Using DSMath for handling multiply
+// Using DSMath for handling 'multiply' because I suck at Math.
 //  https://github.com/dapphub/ds-math/blob/master/src/math.sol
 
-// NOTE: 'pure' does not write to the Blockchain
+// NOTE: 'pure' does not write to the Blockchain!
   function multiply(uint x, uint y) internal pure returns (uint z) {
     require(y == 0 || (z = x * y) / y == x);
   }
@@ -27,5 +27,13 @@ contract CryptoPirateTokenSale {
     require(tokenContract.transfer(msg.sender, _numberOfTokens));
     tokensSold += _numberOfTokens;
     Sell(msg.sender, _numberOfTokens);
+  }
+  function endSale() public {
+    require(msg.sender == admin);
+    require(tokenContract.transfer(admin, tokenContract.balanceOf(this)));
+    // selfdestruct(admin);
+    // NOTE: Let's not destroy the contract here
+    // Just transfer the balance to the admin
+    admin.transfer(address(this).balance);
   }
 }

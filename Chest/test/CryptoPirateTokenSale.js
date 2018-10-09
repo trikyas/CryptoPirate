@@ -23,13 +23,17 @@ contract('CryptoPirateTokenSale', function(accounts) {
       assert.equal(price, tokenPrice, 'token price is correct');
     });
   });
+
+
+
   it('facilitates token buying', function() {
     return CryptoPirateToken.deployed().then(function(instance) {
       tokenInstance = instance;
       return CryptoPirateTokenSale.deployed();
     }).then(function(instance) {
       tokenSaleInstance = instance;
-      return tokenInstance.transfer(tokenSaleInstance.address, tokensAvailable, { from: admin }).then(function(receipt) {
+      return tokenInstance.transfer(tokenSaleInstance.address, tokensAvailable, { from: admin });
+    }).then(function(receipt) {
       numberOfTokens = 10;
       return tokenSaleInstance.buyTokens(numberOfTokens, { from: buyer, value: numberOfTokens * tokenPrice })
     }).then(function(receipt) {
@@ -49,11 +53,37 @@ contract('CryptoPirateTokenSale', function(accounts) {
       // Try and buy tokens different to the ether value
       return tokenSaleInstance.buyTokens(numberOfTokens, { from: buyer, value: 1 });
     }).then(assert.fail).catch(function(error) {
-      assert(error.message.indexOf('revert') >= 0, 'msg.value must equal number of tokens in wei');
+      assert(error.message.indexOf('revert') >= 0, 'msg value must equal number of tokens in wei');
       return tokenSaleInstance.buyTokens(800000, { from: buyer, value: numberOfTokens * tokenPrice })
     }).then(assert.fail).catch(function(error) {
       assert(error.message.indexOf('revert') >= 0, 'cannot purchase more tokens than available');
     });
   });
+
+
+
+
+  it('ends token sale', function() {
+    return CryptoPirateToken.deployed().then(function(instance) {
+      tokenInstance = instance;
+      return CryptoPirateTokenSale.deployed();
+    }).then(function(instance) {
+      tokenSaleInstance = instance;
+      // Attempt to end the sale from account other than the admin
+      return tokenSaleInstance.endSale({ from: buyer });
+    }).then(assert.fail).catch(function(error) {
+      assert(error.message.indexOf('revert') >= 0, 'must be admin to end a sale');
+      // end sale as admin
+      return tokenSaleInstance.endSale({ from: admin });
+    }).then(function(receipt) {
+      return tokenInstance.balanceOf(admin);
+  }).then(function(balance) {
+    assert.equal(balance.toNumber(), 999990, 'returns all unsold dapp tokens to admin');
+    //
+    balance = web3.eth.getBalance(tokenSaleInstance.address)
+    assert.equal(balance.toNumber(), 0);
+  });
 });
+
+//END
 });
