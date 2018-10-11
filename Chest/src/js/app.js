@@ -100,7 +100,7 @@ App = {
         CryptoPirateTokenInstance = instance;
         return CryptoPirateTokenInstance.balanceOf(App.account);
       }).then(function(balance) {
-        $('.dapp-balance').html(balance.toNumber());
+        $('.cryptopirate-balance').html(balance.toNumber());
         App.loading = false;
         loader.hide();
         content.show();

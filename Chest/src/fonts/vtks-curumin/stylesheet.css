@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'Bones';
+    src: url('Bones.eot');
+    src: local('Bones'),
+        url('Bones.eot?#iefix') format('embedded-opentype'),
+        url('Bones.woff2') format('woff2'),
+        url('Bones.woff') format('woff'),
+        url('Bones.ttf') format('truetype'),
+        url('Bones.svg#Bones') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Vtks Curumin';
+    src: url('VtksCurumin.eot');
+    src: local('Vtks Curumin'), local('VtksCurumin'),
+        url('VtksCurumin.eot?#iefix') format('embedded-opentype'),
+        url('VtksCurumin.woff2') format('woff2'),
+        url('VtksCurumin.woff') format('woff'),
+        url('VtksCurumin.ttf') format('truetype'),
+        url('VtksCurumin.svg#VtksCurumin') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Caligraf 1435';
+    src: url('Caligraf1435-Italic.eot');
+    src: local('Caligraf 1435 Italic'), local('Caligraf1435-Italic'),
+        url('Caligraf1435-Italic.eot?#iefix') format('embedded-opentype'),
+        url('Caligraf1435-Italic.woff2') format('woff2'),
+        url('Caligraf1435-Italic.woff') format('woff'),
+        url('Caligraf1435-Italic.ttf') format('truetype'),
+        url('Caligraf1435-Italic.svg#Caligraf1435-Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+

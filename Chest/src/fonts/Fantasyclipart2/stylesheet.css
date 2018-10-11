@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Fantasy clipart 2';
+    src: url('Fantasyclipart2.eot');
+    src: local('Fantasy clipart 2'), local('Fantasyclipart2'),
+        url('Fantasyclipart2.eot?#iefix') format('embedded-opentype'),
+        url('Fantasyclipart2.woff2') format('woff2'),
+        url('Fantasyclipart2.woff') format('woff'),
+        url('Fantasyclipart2.ttf') format('truetype'),
+        url('Fantasyclipart2.svg#Fantasyclipart2') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BlackPearl';
+    src: url('BlackPearl.eot');
+    src: local('BlackPearl'),
+        url('BlackPearl.eot?#iefix') format('embedded-opentype'),
+        url('BlackPearl.woff2') format('woff2'),
+        url('BlackPearl.woff') format('woff'),
+        url('BlackPearl.ttf') format('truetype'),
+        url('BlackPearl.svg#BlackPearl') format('svg');
+    font-weight: 900;
+    font-style: normal;
+}
+

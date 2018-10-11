@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'BlackPearl';
+    src: url('../fonts/BlackPearl/BlackPearl.eot');
+    src: local('../fonts/BlackPearl/BlackPearl'),
+        url('../fonts/BlackPearl/BlackPearl.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/BlackPearl/BlackPearl.woff2') format('woff2'),
+        url('../fonts/BlackPearl/BlackPearl.woff') format('woff'),
+        url('../fonts/BlackPearl/BlackPearl.ttf') format('truetype'),
+        url('../fonts/BlackPearl/BlackPearl.svg#BlackPearl') format('svg');
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+  font-family: 'Caligraf1435-Italic';
+  src: url('../fonts/Caligraf-Italic/Caligraf1435-Italic.eot?#iefix') format('embedded-opentype'),  url('../fonts/Caligraf-Italic/Caligraf1435-Italic.woff') format('woff'), url('../fonts/Caligraf-Italic/Caligraf1435-Italic.ttf')  format('truetype'), url('../fonts/Caligraf-Italic/Caligraf1435-Italic.svg#Caligraf1435-Italic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+    font-family: 'Fantasy clipart 2';
+    src: url('../fonts/Fantasyclipart2/Fantasyclipart2.eot');
+    src: local('../fonts/Fantasyclipart2/Fantasy clipart 2'), local('Fantasyclipart2'),
+        url('../fonts/Fantasyclipart2/Fantasyclipart2.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Fantasyclipart2/Fantasyclipart2.woff2') format('woff2'),
+        url('../fonts/Fantasyclipart2/Fantasyclipart2.woff') format('woff'),
+        url('../fonts/Fantasyclipart2/Fantasyclipart2.ttf') format('truetype'),
+        url('../fonts/Fantasyclipart2/Fantasyclipart2.svg#Fantasyclipart2') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Pirates Two';
+    src: url('../fonts/PiratesTwo/PiratesTwo.eot');
+    src: local('../fonts/PiratesTwo/Pirates Two'), local('PiratesTwo'),
+        url('../fonts/PiratesTwo/PiratesTwo.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/PiratesTwo/PiratesTwo.woff2') format('woff2'),
+        url('../fonts/PiratesTwo/PiratesTwo.woff') format('woff'),
+        url('../fonts/PiratesTwo/PiratesTwo.ttf') format('truetype'),
+        url('../fonts/PiratesTwo/PiratesTwo.svg#PiratesTwo') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Vtks Curumin';
+    src: url('../fonts/vtks-curumin/VtksCurumin.eot');
+    src: local('../fonts/vtks-curumin/Vtks Curumin'), local('VtksCurumin'),
+        url('../fonts/vtks-curumin/VtksCurumin.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/vtks-curumin/VtksCurumin.woff2') format('woff2'),
+        url('../fonts/vtks-curumin/VtksCurumin.woff') format('woff'),
+        url('../fonts/vtks-curumin/VtksCurumin.ttf') format('truetype'),
+        url('../fonts/vtks-curumin/VtksCurumin.svg#VtksCurumin') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+.skull, .ico {
+  font-family: 'BlackPearl';
+  /* font-family: 'Caligraf1435-Italic'; */
+    /* font-family: 'Pirates Two'; */
+    /* font-family: 'Vtks Curumin'; */
+}
+#clipart {
+  font-family: 'Fantasy clipart 2';
+}
+.skullnbones {
+    font-size: calc(1.5vh + 1.5vw + 1.5vmin);
+}
+.skullnbones, .chest {
+  filter: drop-shadow(0 2px 2px #444);
+}
+.chest {
+  font-size: calc(3.5vh + 3.5vw + 3.5vmin);
+}
+.ico {
+  font-family: 'Vtks Curumin';
+  font-size: calc(1.5vh + 1.5vw + 1.5vmin);
+}
