@@ -52,8 +52,22 @@
     font-weight: normal;
     font-style: normal;
 }
-
-
+body {
+  /* background: #F0DDB5; */
+  background-image: url('../img/cryptopirate_bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.btn-trikyas {
+  background-color: #594433;
+  color: #F9F4E9;
+  transition: background .25s ease-in-out;
+}
+.btn-trikyas:hover {
+  background-color: #F9F4E9;
+  color: #594433;
+}
 
 .skull, .ico {
   font-family: 'BlackPearl';
@@ -61,19 +75,49 @@
     /* font-family: 'Pirates Two'; */
     /* font-family: 'Vtks Curumin'; */
 }
-#clipart {
+.clipart {
   font-family: 'Fantasy clipart 2';
 }
 .skullnbones {
-    font-size: calc(1.5vh + 1.5vw + 1.5vmin);
+    font-size: calc(1.25vh + 1.5vw + 1.5vmin);
 }
 .skullnbones, .chest {
-  filter: drop-shadow(0 2px 2px #444);
+  filter: drop-shadow(0 2px 2px #7B6A5D);
 }
 .chest {
-  font-size: calc(3.5vh + 3.5vw + 3.5vmin);
+  font-size: calc(5vh + 5vw + 5vmin);
 }
 .ico {
   font-family: 'Vtks Curumin';
-  font-size: calc(1.5vh + 1.5vw + 1.5vmin);
+  font-size: 5vh;
+
+    color: #594433;
+}
+h1 {
+  font-size: calc(.95vh + .95vw + .95vmin);
+}
+@media (min-width: 576px) {
+  h1 {
+    font-size: calc(1.0416666667vw + 16px);
+  }
+}
+@media (min-width: 768px) {
+  h1 {
+    font-size: calc(4.4642857143vw - 10.2857142857px);
+  }
+}
+@media (min-width: 992px) {
+  h1 {
+    font-size: 34px;
+  }
+}
+
+.jumbotron {
+  background: rgba(240,221,181, .50);
+  width: 90%;
+  margin: auto;
+}
+form {
+  width: 80vw;
+  left: 9px;
 }
