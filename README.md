@@ -1,2 +1,3 @@
-# CryptoPirate
-Trying to create my own Cryptocurrency
+# CryptoPirate ICO
+Introducing the new "CryptoPirate Token" (CPT)!
+
