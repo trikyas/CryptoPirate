@@ -50,6 +50,15 @@ NB This css is not cleeaned. I will clean it tonight.
     font-style: normal;
 }
 @font-face {
+  font-family: 'UglyQua';
+  src: url('../fonts/UglyQua/UglyQua.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/UglyQua/UglyQua.woff') format('woff'),
+  url('../fonts/UglyQua/UglyQua.ttf')  format('truetype'),
+  url('../fonts/UglyQua/UglyQua.svg#UglyQua') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
     font-family: 'Vtks Curumin';
     src: url('../fonts/vtks-curumin/VtksCurumin.eot');
     src: local('../fonts/vtks-curumin/Vtks Curumin'), local('VtksCurumin'),
@@ -67,6 +76,13 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+}
+hr {
+  height: 2.5px;
+  width: 100%;
+  border: none;
+  background-color: #59443340;
+  border-radius: 5px;
 }
 .btn-trikyas {
   background-color: #594433;
@@ -86,12 +102,13 @@ body {
 }
 .clipart {
   font-family: 'Fantasy clipart 2';
+    filter: drop-shadow(0 2px 2px #7B6A5D);
+}
+.lg {
+  font-size: calc(5vh + 5vw + 5vmin);
 }
 .skullnbones {
     font-size: calc(1.25vh + 1.5vw + 1.5vmin);
-}
-.skullnbones, .chest {
-  filter: drop-shadow(0 2px 2px #7B6A5D);
 }
 .chest {
   font-size: calc(5vh + 5vw + 5vmin);
@@ -121,12 +138,18 @@ h1 {
   }
 }
 
-.jumbotron {
+.jumbotron, #tokenSold {
   background: rgba(240,221,181, .50);
   width: 90%;
   margin: auto;
+    /* font-family: 'Vtks Curumin'; */
+    /* font-family: 'BlackPearl'; */
+    font-family: 'UglyQua';
+}
+.token-price, .cryptopirate-balance, #numberOfTokens, .tokens-sold, .tokens-available, #accountAddress {
+  font-family: Arial, Helvetica, sans-serif;
 }
 form {
   width: 80vw;
-  left: 9px;
+  margin: auto;
 }

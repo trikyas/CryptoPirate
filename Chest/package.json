@@ -1,7 +1,7 @@
 {
-  "name": "CryptoPirate",
+  "name": "CRYPTOCALICO",
   "version": "1.0.0",
-  "description": "CryptoPirate ICO",
+  "description": "CRYPTOCALICO Token ICO",
   "main": "truffle.js",
   "directories": {
     "test": "test"

@@ -4,10 +4,10 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CryptoPirate | Trikyas</title>
+    <title>CryptoCalico | Trikyas</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/trikyas.css" />
-
+    <!-- Oderint Dum Metuant -->
   </head>
   <body>
 
@@ -15,7 +15,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 op">
-            <h1 class="text-center skull"> CRYPTOPIRATE </h1>
+            <h1 class="text-center skull"> CRYPTOCALICO <br  /> TOKEN </h1>
             <h2 class="text-center chest"><span class="clipart">R</span></h2>
             <p class="lead text-center ico"><span  class="skullnbones clipart">S&nbsp;</span> Initial Coin Offering <span class="skullnbones clipart">&nbsp;S</span></p>
 
@@ -23,11 +23,11 @@
             <br/>
         </div>
         <div id="loader">
-          <p class="text-center">Loading the Cannons...</p>
+          <p class="text-center">Loading the Crypto...</p>
         </div>
         <div id="content" class="text-center" style="display: none;">
-          <p>Introducing the new "CryptoPirate Token" (CPT)!
-            Token price is <span class="token-price"></span> Ether. You currently have <span class="cryptopirate-balance"></span>&nbsp;CPT.
+          <p id="intro">Introducin' th' new "CryptoCalico Token" (CCT)!<br />
+            Token price be <span class="token-price"></span> Ether.<br />Ye currently 'ave <span class="cryptopirate-balance"></span>&nbsp;CPT.
           </p>
           <br/>
           <form onSubmit="App.buyTokens(); return false;" role="form">
@@ -36,20 +36,21 @@
                 <input id="numberOfTokens" class="form-control input-lg" type="number" name="number" value="1" min="1" pattern="[0-9]">
                 </input>
                 <span class="input-group-btn">
-                  <button type="submit" class="btn btn-trikyas btn-lg">Buy CryptoPirate  Tokens</button>
+                  <button type="submit" class="btn btn-trikyas btn-lg">Buy CryptoCalico  Tokens</button>
                 </span>
               </div>
             </div>
           </form>
           <br>
            <div class="progress">
-              <div id="progress" class="progress-bar progress-bar-striped active" aria-valuemin="0" aria-valuemax="100">
+              <div id="progress" class="progress-bar progress-bar-striped " aria-valuemin="0" aria-valuemax="100">
               </div>
             </div>
-          <p><span class="tokens-sold"></span> / <span class="tokens-available"></span> tokens sold</p>
+          <p id"tokenSold"><span class="tokens-sold"></span> / <span class="tokens-available"></span> tokens sold</p>
           <hr>
           <p id="accountAddress"></p>
         </div>
+        <div class="text-center"><span class="clipart lg">Q</span><br />A SMOOTH SEA NEVER MADE A SKILLED PIRATE <br />Created by Chad Trikyas Mooney<br /><span class="clipart">C</span><br />Oderint Dum Metuant</div>
       </div>
     </div>
   </div>
