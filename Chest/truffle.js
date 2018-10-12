@@ -20,6 +20,12 @@ module.exports = {
       host: "127.0.0.1",
       port:  "9545",
       network_id: "*" //match any network id
+    },
+    rinkeby: { // Connect to Rinkeby test network
+      host: "localhost",
+      port: 9545,
+      network_id: 4,
+      gas: 4700000
     }
   }
 };
